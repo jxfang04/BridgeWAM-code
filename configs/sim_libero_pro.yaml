@@ -1,0 +1,24 @@
+# @package _global_
+defaults:
+  - sim_libero
+  - override /task: libero_uncond_2cam224_lbqs_only_2layer_alternating_cross_self_fullfinetune_1e-4
+  - _self_
+
+EVALUATION:
+  task_suite_name: libero_spatial_object
+  output_dir: ./runs/eval/libero-pro/${hydra:runtime.choices.task}/${now:%Y%m%d_%H%M%S}
+  num_trials: 50
+  num_steps_wait: 10
+  # Null selects the official Pro per-suite horizon (220/280/300/520).
+  max_steps: null
+  save_rollout_video: true
+
+LIBERO_PRO:
+  # Or set LIBERO_PRO_REPO; the environment is separate from this training checkout.
+  repo_path: null
+  perturbations: [object, position, language, task, environment]
+  require_assets: true
+  expected_num_tasks: null
+
+MULTIRUN:
+  max_tasks_per_gpu: 1

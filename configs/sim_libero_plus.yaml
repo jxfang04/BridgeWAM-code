@@ -1,0 +1,77 @@
+# @package _global_
+
+defaults:
+  - train
+  - override /task: libero_uncond_2cam224_lbqs_only_2layer_alternating_cross_self_fullfinetune_1e-4
+  - _self_
+
+ckpt: null
+gpu_id: 0
+
+model:
+  load_text_encoder: true
+  skip_dit_load_from_pretrain: true
+  action_dit_pretrained_path: null
+
+EVALUATION:
+  task_suite_name: libero_spatial
+  task_id: 0
+  num_trials: 1
+  output_dir: ./runs/eval/libero-plus/${hydra:runtime.choices.task}/${now:%Y%m%d_%H%M%S}
+
+  env_num: 1
+  num_steps_wait: 30
+  replan_steps: 10
+  binarize_gripper: true
+  use_action_ensembler: false
+  visualize_future_video: false
+  save_rollout_video: true
+
+  action_horizon: null
+  num_inference_steps: ${eval_num_inference_steps}
+  sigma_shift: null
+  text_cfg_scale: 1.0
+  negative_prompt: ""
+  rand_device: cpu
+  tiled: false
+
+  profile_inference: false
+  profile_output: null
+  profile_warmup_calls: 0
+  profile_flops_num_calls: 0
+
+  dataset_stats_path: null
+  device: cuda
+
+LIBERO_PLUS:
+  # Null resolves to the BridgeWAM project root's LIBERO-plus directory.
+  repo_path: null
+  categories: null
+  difficulty_levels: null
+  include_unknown_difficulty: true
+  # Optional deterministic cap for each suite/category/difficulty cell.
+  max_tasks_per_cell: null
+  sample_seed: 0
+  require_assets: true
+  # Optional guard used by stage launchers to reject accidental partial runs.
+  expected_num_tasks: null
+
+MULTIRUN:
+  create_only: false
+  task_suite_names:
+    - libero_10
+    - libero_goal
+    - libero_spatial
+    - libero_object
+  task_ids: null
+  # Each worker loads BridgeWAM once and evaluates this many Plus task variants.
+  tasks_per_worker: 50
+  num_gpus: 8
+  max_tasks_per_gpu: 1
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: .
+  output_subdir: null

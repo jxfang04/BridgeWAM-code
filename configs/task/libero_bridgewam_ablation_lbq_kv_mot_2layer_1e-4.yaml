@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - override /data: libero_2cam
+  - override /model: bridgewam_ablation
+  - _self_
+
+model:
+  checkpoint_attention: false
+  ablation:
+    type: lbq_kv_mot
+  latent_bridge_queries:
+    generation_coupling: future_video_reads_lbq
+    injection_mode: text_state
+    freeze_video_expert: false
+    strict_training_scope: false
+  action_dit_config:
+    architecture: alternating_cross_self
+    num_layers: 2
+    add_pos_embed: true
+  loss:
+    lambda_video: 1.0
+    lambda_action: 1.0
+
+batch_size: 16
+num_workers: 8
+learning_rate: 1.0e-4
+lr_scheduler_type: cosine
+num_epochs: 10
+max_steps: null
+log_every: 10
+save_every: 2000
+eval_every: 200
+gradient_accumulation_steps: 1
+weight_decay: 1.0e-2
+resume: null
