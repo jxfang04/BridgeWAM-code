@@ -1,8 +1,14 @@
-# BridgeWAM
+<h1 align="center">BridgeWAM: Bridging Video and Action Experts via Latent Bridge Queries</h1>
 
-[🤗 Hugging Face Models](https://huggingface.co/BridgeWAM/bridgewam)
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.14746"><img src="https://img.shields.io/static/v1?label=Paper&amp;message=PDF&amp;color=red&amp;logo=arxiv" alt="Paper"></a>
+  <a href="https://huggingface.co/BridgeWAM/bridgewam"><img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Model&amp;message=HuggingFace&amp;color=orange" alt="Hugging Face Models"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green" alt="License: MIT"></a>
+</p>
 
-![BridgeWAM overview](bridgewam-teaser.png)
+<p align="center">
+  <img src="bridgewam-teaser.png" alt="BridgeWAM overview" width="100%">
+</p>
 
 BridgeWAM connects pretrained video and action experts through Latent Bridge
 Queries (LBQs). This source distribution contains the model implementation,
@@ -287,3 +293,20 @@ copyright attribution are not model compatibility interfaces:
 - [Upstream model resources](https://huggingface.co/yuanty/fastwam)
 - [LIBERO data](https://huggingface.co/datasets/yuanty/LIBERO-fastwam)
 - [RoboTwin data](https://huggingface.co/datasets/yuanty/robotwin2.0-fastwam)
+
+## Citation
+
+If you find BridgeWAM useful in your research, please cite our
+[arXiv paper](https://arxiv.org/abs/2610.14746):
+
+```bibtex
+@misc{fang2026bridgewam,
+  title         = {{BridgeWAM}: Bridging Video and Action Experts via Latent Bridge Queries},
+  author        = {Jiaxin Fang and Ruitong Liu and Zeyu Lai and Xingyu Wang and Mingyuan Jia and Pingyue Sheng and Weikang Wan and Mengdi Xu and Yuxiang Gao},
+  year          = {2026},
+  eprint        = {2610.14746},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2610.14746}
+}
+```
