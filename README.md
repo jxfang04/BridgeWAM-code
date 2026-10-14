@@ -10,6 +10,10 @@
   <img src="bridgewam-teaser.png" alt="BridgeWAM overview" width="100%">
 </p>
 
+<p align="center">
+  <img src="BridgeWAM-Figure.png" alt="BridgeWAM architecture with Latent Bridge Queries connecting video and action experts" width="100%">
+</p>
+
 BridgeWAM connects pretrained video and action experts through Latent Bridge
 Queries (LBQs). This source distribution contains the model implementation,
 training and evaluation entrypoints, task configurations, and regression tests.
