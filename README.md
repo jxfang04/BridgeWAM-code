@@ -300,9 +300,10 @@ If you find BridgeWAM useful in your research, please cite our
 [arXiv paper](https://arxiv.org/abs/2610.14746):
 
 ```bibtex
-@misc{fang2026bridgewam,
+@article{fang2026bridgewam,
   title         = {{BridgeWAM}: Bridging Video and Action Experts via Latent Bridge Queries},
   author        = {Jiaxin Fang and Ruitong Liu and Zeyu Lai and Xingyu Wang and Mingyuan Jia and Pingyue Sheng and Weikang Wan and Mengdi Xu and Yuxiang Gao},
+  journal       = {arXiv preprint arXiv:2610.14746},
   year          = {2026},
   eprint        = {2610.14746},
   archivePrefix = {arXiv},
